@@ -17,7 +17,7 @@ export function PasswordResetRequest() {
     e.preventDefault();
     if (email) {
       try {
-        const res = await axios.post('http://127.0.0.1:8000/api/password-reset/', { 'email': email });
+        const res = await axios.post(import.meta.env.VITE_BACK_URL+'/api/password-reset/', { 'email': email });
         if (res.status === 200) {
           Swal.fire({
             title: "Correo Enviado",
