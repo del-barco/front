@@ -225,7 +225,7 @@ export const TablaRecetas = () => {
 
           try {
             await axios.patch(
-              `http://127.0.0.1:8000/api/receta_detalles/${detallesActuales.idrecetadetalle}/`,
+              import.meta.env.VITE_BACK_URL + `/api/receta_detalles/${detallesActuales.idrecetadetalle}/`,
               {
                 insumo_id: nuevoInsumo,
                 cantidad: nuevaCantidad,
