@@ -70,7 +70,7 @@ export function Signup() {
         throw new Error('Todos los campos son obligatorios');
       }
   
-      const response = await fetch('http://127.0.0.1:8000/api/register/', {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+'/api/register/', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

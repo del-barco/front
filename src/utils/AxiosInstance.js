@@ -3,7 +3,7 @@ import * as jwt_decode from 'jwt-decode';
 import dayjs from "dayjs";
 import cookieService from '../services/cookieService';
 
-const baseURL = 'http://127.0.0.1:8000/api/';
+const baseURL = import.meta.env.VITE_BACK_URL+'/api/';
 
 const AxiosInstance = axios.create({
   baseURL: baseURL,

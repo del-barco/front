@@ -47,7 +47,7 @@ export function AltaProveedores() {
         throw new RequiredFieldError('Por favor, complete todos los campos.');
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/proveedores/', {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+'/api/proveedores/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -43,13 +43,13 @@ export const TablaRecetas = () => {
   const fetchData = async () => {
     try {
       const responseRecetas = await axios.get(
-        "http://127.0.0.1:8000/api/recetas/"
+        import.meta.env.VITE_BACK_URL+"/api/recetas/"
       );
       const responseRecetasDetalles = await axios.get(
-        "http://127.0.0.1:8000/api/receta_detalles/"
+        import.meta.env.VITE_BACK_URL+"/api/receta_detalles/"
       );
       const responseInsumos = await axios.get(
-        "http://127.0.0.1:8000/api/insumos/"
+        import.meta.env.VITE_BACK_URL+"/api/insumos/"
       );
 
       setRecetas(responseRecetas.data.recetas);

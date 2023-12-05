@@ -68,7 +68,7 @@ export const TablaCocciones = () => {
 
   const descargarInforme = async () => {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/informe_cocciones/"
+      import.meta.env.VITE_BACK_URL+"/api/informe_cocciones/"
     );
     const blob = await response.blob();
     const url = window.URL.createObjectURL(new Blob([blob]));
@@ -104,7 +104,7 @@ export const TablaCocciones = () => {
   const fetchData = async (searchTerm = "") => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/cocciones/?search=${searchTerm}`
+        import.meta.env.VITE_BACK_URL+`/api/cocciones/?search=${searchTerm}`
       );
       setCocciones(response.data.cocciones);
       setTablaCocciones(response.data.cocciones);

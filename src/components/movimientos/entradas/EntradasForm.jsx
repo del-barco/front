@@ -44,7 +44,7 @@ export function EntradaForm() {
   useEffect(() => {
     const fetchProveedores = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/proveedores/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/proveedores/");
         const data = await response.json();
 
         if (response.ok) {
@@ -63,7 +63,7 @@ export function EntradaForm() {
   useEffect(() => {
     const fetchInsumos = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/insumos/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/");
         const data = await response.json();
 
         if (response.ok) {
@@ -83,7 +83,7 @@ export function EntradaForm() {
     const fetchLastInsertedId = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/lastidentrada/"
+          import.meta.env.VITE_BACK_URL+"/api/lastidentrada/"
         );
         const data = await response.json();
         const lastId = data.lastid + 1;
@@ -228,7 +228,7 @@ export function EntradaForm() {
         monto_total,
       };
 
-      const response = await fetch("http://127.0.0.1:8000/api/entradas/", {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/entradas/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -250,7 +250,7 @@ export function EntradaForm() {
       }
 
       const promises = listaDetalle.map((detalle) =>
-        fetch("http://127.0.0.1:8000/api/entrada_detalles/", {
+        fetch(import.meta.env.VITE_BACK_URL+"/api/entrada_detalles/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

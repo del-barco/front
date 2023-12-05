@@ -53,7 +53,7 @@ export function RecetasForm() {
 
   const fetchInsumos = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/insumos/");
+      const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/");
       const data = await response.json();
       setListaInsumos(data.insumos);
     } catch (error) {
@@ -291,8 +291,8 @@ export function RecetasForm() {
       return;
     }
 
-    const recetasApiUrl = "http://127.0.0.1:8000/api/recetas/";
-    const recetasDetallesApiUrl = "http://127.0.0.1:8000/api/receta_detalles/";
+    const recetasApiUrl = import.meta.env.VITE_BACK_URL+"/api/recetas/";
+    const recetasDetallesApiUrl = import.meta.env.VITE_BACK_URL+"/api/receta_detalles/";
 
     const recetasData = {
       nombre_receta: nombreReceta,
