@@ -24,6 +24,8 @@ import { TablaCoccionesPage } from "./pages/TablaCoccionesPage";
 import { RegistroCoccionesPage } from "./pages/RegistroCoccionesForm";
 import { RegistroRecetasForm } from "./pages/RegistroRecetas";
 import cookieService from "./services/cookieService";
+import.meta.env.VITE_BACK_URL;
+
 
 
 function ProtectedRoute({ element: Component, ...rest }) {

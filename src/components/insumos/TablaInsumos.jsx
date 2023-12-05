@@ -38,7 +38,7 @@ export const TablaInsumos = () => {
   };
 
   const descargarInforme = async () => {
-    const response = await fetch("http://127.0.0.1:8000/api/informe_insumos/");
+    const response = await fetch(import.meta.env.VITE_BACK_URL + "/api/informe_insumos/");
     const blob = await response.blob();
     const url = window.URL.createObjectURL(new Blob([blob]));
     const a = document.createElement("a");
@@ -88,10 +88,10 @@ export const TablaInsumos = () => {
     const fetchData = async (searchTerm = "") => {
       try {
         const insumosResponse = await axios.get(
-          `http://127.0.0.1:8000/api/insumos/?search=${searchTerm}`
+          import.meta.env.VITE_BACK_URL + `/api/insumos/?search=${searchTerm}`
         );
         const proveedoresResponse = await axios.get(
-          "http://127.0.0.1:8000/api/proveedores/"
+          import.meta.env.VITE_BACK_URL+"/api/proveedores/"
         );
         setData(insumosResponse.data.insumos);
         setTablaInsumos(insumosResponse.data.insumos);
@@ -200,7 +200,7 @@ export const TablaInsumos = () => {
         }
 
         try {
-          await axios.patch(`http://127.0.0.1:8000/api/insumos/${idinsumo}/`, {
+          await axios.patch(import.meta.env.VITE_BACK_URL + `/api/insumos/${idinsumo}/`, {
             nombre_insumo: nuevoNombre,
             cantidad_disponible: nuevaCantidad,
             tipo_medida: nuevaMedidas,

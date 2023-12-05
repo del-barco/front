@@ -40,7 +40,7 @@ export function AltaInsumos() {
   useEffect(() => {
     async function fetchProveedores() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/proveedores/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/proveedores/");
         if (response.ok) {
           const data = await response.json();
           setProveedores(data.proveedores);
@@ -193,7 +193,7 @@ export function AltaInsumos() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/insumos/", {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

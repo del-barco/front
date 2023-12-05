@@ -78,7 +78,7 @@ export const TablaProveedores = () => {
   const fetchData = async (searchTerm = "") => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/proveedores/?search=${searchTerm}`
+        import.meta.env.VITE_BACK_URL+`/api/proveedores/?search=${searchTerm}`
       );
 
       const filteredProveedores = response.data.proveedores.filter(
@@ -158,7 +158,7 @@ export const TablaProveedores = () => {
 
         try {
           await axios.patch(
-            `http://127.0.0.1:8000/api/proveedores/${idproveedor}/`,
+            import.meta.env.VITE_BACK_URL+`/api/proveedores/${idproveedor}/`,
             {
               nombre_proveedor: nuevoNombre,
               mail: nuevoMail,
@@ -205,7 +205,7 @@ export const TablaProveedores = () => {
 
       if (result.isConfirmed) {
         const response = await axios.patch(
-          `http://127.0.0.1:8000/api/proveedores/${idproveedor}/`,
+          import.meta.env.VITE_BACK_URL+`/api/proveedores/${idproveedor}/`,
           {
             estado: "I",
           }
@@ -243,7 +243,7 @@ export const TablaProveedores = () => {
 
       if (result.isConfirmed) {
         const response = await axios.patch(
-          `http://127.0.0.1:8000/api/proveedores/${idproveedor}/`,
+          import.meta.env.VITE_BACK_URL+`/api/proveedores/${idproveedor}/`,
           {
             estado: "A",
           }

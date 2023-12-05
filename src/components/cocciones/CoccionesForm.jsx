@@ -24,7 +24,7 @@ export function CoccionesForm() {
     useEffect(() => {
         const fetchRecetas = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/recetas/');
+                const response = await fetch(import.meta.env.VITE_BACK_URL+'/api/recetas/');
                 const data = await response.json();
 
                 if (response.ok) {
@@ -65,7 +65,7 @@ export function CoccionesForm() {
                 setErrorRecetaId(false);
             }
 
-            const response = await fetch("http://127.0.0.1:8000/api/cocciones/", {
+            const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/cocciones/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "aplication/json",

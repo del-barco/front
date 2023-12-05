@@ -47,7 +47,7 @@ export function SalidasForm() {
   useEffect(() => {
     const fetchInsumos = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/insumos/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/");
         const data = await response.json();
 
         if (response.ok) {
@@ -68,7 +68,7 @@ export function SalidasForm() {
     const fetchLastInsertedId = async () => {
       try {
         // Realiza una solicitud a la API de entradas para obtener todas las entradas
-        const response = await fetch("http://127.0.0.1:8000/api/lastidsalida/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/lastidsalida/");
         const data = await response.json();
         //console.log('Esto es data', data);
         const lastId = data.lastid + 1;
@@ -194,7 +194,7 @@ export function SalidasForm() {
         throw new RequiredFieldError("Este campo es obligatorio");
       }
 
-      const response = await fetch("http://127.0.0.1:8000/api/salidas/", {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/salidas/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -215,7 +215,7 @@ export function SalidasForm() {
 
       // Envía detalles de entrada
       const promises = listaDetalle.map((detalle) =>
-        fetch("http://127.0.0.1:8000/api/salida_detalles/", {
+        fetch(import.meta.env.VITE_BACK_URL+"/api/salida_detalles/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

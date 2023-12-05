@@ -30,7 +30,7 @@ export function ResetPassword() {
   //   }
 
   //   if (data) {
-  //     const res = await axios.patch('http://127.0.0.1:8000/api/change-password/', data)
+  //     const res = await axios.patch(import.meta.env.VITE_BACK_URL+'/api/change-password/', data)
   //     const response = res.data
   //     if (res.status === 200) {
 
@@ -89,7 +89,7 @@ export function ResetPassword() {
         throw new Error('Todos los campos son obligatorios');
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/change-password/', {
+      const response = await fetch(import.meta.env.VITE_BACK_URL+'/api/change-password/', {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -44,10 +44,10 @@ export const TablaSalidasMovimientos = () => {
   const fetchData = async () => {
     try {
       const responseSalida = await axios.get(
-        "http://127.0.0.1:8000/api/salidas/"
+        import.meta.env.VITE_BACK_URL+"/api/salidas/"
       );
       const responseSalidaDetalles = await axios.get(
-        "http://127.0.0.1:8000/api/salida_detalles/"
+        import.meta.env.VITE_BACK_URL+"/api/salida_detalles/"
       );
       setSalidas(responseSalida.data.salidas);
       setSalidasDetalle(responseSalidaDetalles.data.salidas);
@@ -59,7 +59,7 @@ export const TablaSalidasMovimientos = () => {
   useEffect(() => {
     const fetchInsumos = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/insumos/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/");
         const data = await response.json();
 
         if (response.ok) {

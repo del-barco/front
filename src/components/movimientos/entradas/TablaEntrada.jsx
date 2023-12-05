@@ -43,10 +43,10 @@ export const TablaEntradas = () => {
   const fetchData = async () => {
     try {
       const responseEntrada = await axios.get(
-        "http://127.0.0.1:8000/api/entradas/"
+        import.meta.env.VITE_BACK_URL+"/api/entradas/"
       );
       const responseEntradaDetalle = await axios.get(
-        "http://127.0.0.1:8000/api/entrada_detalles"
+        import.meta.env.VITE_BACK_URL+"/api/entrada_detalles"
       );
       setEntradas(responseEntrada.data.entradas);
       setEntradasDetalle(responseEntradaDetalle.data.entradas);
@@ -58,7 +58,7 @@ export const TablaEntradas = () => {
   useEffect(() => {
     const fetchInsumos = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/insumos/");
+        const response = await fetch(import.meta.env.VITE_BACK_URL+"/api/insumos/");
         const data = await response.json();
 
         if (response.ok) {
