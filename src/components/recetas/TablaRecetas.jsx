@@ -341,7 +341,7 @@ export const TablaRecetas = () => {
         {
           element: ".tabla-recetas",
           popover: {
-            title: "Lista de egresos",
+            title: "Lista de recetas",
             description: "Aquí podrás ver el listado de todas las recetas",
             side: "right",
             align: "start",
